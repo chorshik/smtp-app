@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Необходимые Мета-теги всегда на первом месте -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
+          integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div id="app">
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Host</label>
+                <input type="text" class="form-control" v-model="Body.host">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Port</label>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">SenderEmail</label>
+                <input type="email" class="form-control" v-model="Body.sender" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" v-model="Body.password">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">ReceiverEmail</label>
+                <input type="email" class="form-control" v-model="Body.receiver">
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Subject</label>
+                <input type="te" class="form-control" v-model="Body.subject">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1"></label>
+                <textarea class="form-control" v-model="Body.msg" rows="3"></textarea>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Example file input</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+            </form>
+
+                <button @click='sendEmail' type="submit" class="btn btn-primary">send</button>
+
+                <button @click='index' type="submit" class="btn btn-primary">test</button>
+
+        </form>
+        </div>
+</div>
+
+<!-- jQuery первый, затем Tether, затем Bootstrap JS. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"
+        integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"
+        integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"
+        integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        Body: {
+            host: '',
+            port: '',
+            sender: '',
+            password: '',
+            receiver: '',
+            subject: '',
+            msg: '',
+        },
+        error: [],
+    },
+
+    methods: {
+    
+        index: function name () {
+            const str = JSON.stringify(this.Body)
+            console.log(str)
+        },
+
+        sendEmail() {
+            const tmp = JSON.stringify(this.Body)
+            console.log('working')
+            axios.post('http://127.0.0.1:8080/send', tmp)
+                .then((response) => {
+                    console.log(response);
+  })            .catch((error) => {
+                console.log(error);
+            });
+        }
+    }
+})
+</script>
+</body>
+</html>
