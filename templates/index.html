@@ -15,28 +15,31 @@
     <div id="app">
         <form>
             <div class="form-group">
-                <label for="exampleInputEmail1">Host</label>
+                <label for="exampleInputServer">Host</label>
                 <input type="text" class="form-control" v-model="Body.host">
+                smtp.gmail.com
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Port</label>
+                <label for="exampleInputPort">Port</label>
+                <input type="text" class="form-control" v-model="Body.port">
+                587
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">SenderEmail</label>
+                <label for="exampleInputEmail">SenderEmail</label>
                 <input type="email" class="form-control" v-model="Body.sender" aria-describedby="emailHelp">
+                elexirman333@gmail.com
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label for="exampleInputPassword">Password</label>
                 <input type="password" class="form-control" v-model="Body.password">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">ReceiverEmail</label>
+                <label for="exampleInputEmail">ReceiverEmail</label>
                 <input type="email" class="form-control" v-model="Body.receiver">
-
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Subject</label>
-                <input type="te" class="form-control" v-model="Body.subject">
+                <label for="exampleInputSubject">Subject</label>
+                <input type="text" class="form-control" v-model="Body.subject">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1"></label>

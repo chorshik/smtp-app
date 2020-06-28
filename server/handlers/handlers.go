@@ -1,7 +1,5 @@
 package handlers
 
-import "net/http"
-
 // Handlers ...
 type Handlers struct {
 	Index *HandlerIndex
@@ -18,6 +16,6 @@ func NewHandlers() *Handlers {
 }
 
 // enableCors ...
-func enableCors(w *http.ResponseWriter) {
-	(*w).Header().Set("Access-Control-Allow-Origin", "*")
-}
+//func enableCors(w *http.ResponseWriter) {
+//	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+//}

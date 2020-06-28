@@ -27,7 +27,7 @@ func (h *HandlerSender) Send() http.HandlerFunc {
 	}
 
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
+		//enableCors(&w)
 
 		tmp := new(request)
 		if err := json.NewDecoder(r.Body).Decode(tmp); err != nil {

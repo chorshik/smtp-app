@@ -18,7 +18,7 @@ func NewHandlerIndex() *HandlerIndex {
 // HandleIndex ...
 func (i HandlerIndex ) HandleIndex() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
+		//enableCors(&w)
 
 		data, err := ioutil.ReadFile("templates/index.html")
 		if err == nil {
